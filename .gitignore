@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+# Exclude other sensitive/build files
+*.log
+*.sqlite3
+.DS_Store
+Thumbs.db
