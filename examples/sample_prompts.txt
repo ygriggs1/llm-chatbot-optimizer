@@ -1,0 +1,15 @@
+# Sample Prompts for Prompt Engineering and RAG
+
+## Base Prompts
+1. **Question:** What are the main differences between supervised and unsupervised learning?
+   **Answer:** Supervised learning uses labeled data to train algorithms, while unsupervised learning works with unlabeled data to find hidden patterns.
+
+2. **Question:** Can you explain the concept of overfitting?
+   **Answer:** Overfitting occurs when a model learns the training data too well, capturing noise and outliers rather than the actual underlying pattern.
+
+## Optimized Prompts for RAG (Retrieval-Augmented Generation)
+1. **Optimized Question:** Considering my context as a data science beginner, what are the practical differences between supervised and unsupervised learning?
+   **Optimized Answer:** For a beginner, think of supervised learning as needing a guide (the labels) to help you find your way, while unsupervised is like exploring a new area without any instructions, just relying on the patterns you notice.
+
+2. **Optimized Question:** How can I identify if a model is overfitting, and what steps can I take to prevent it?
+   **Optimized Answer:** You can identify overfitting by evaluating the model's performance on both training and validation datasets—if the training accuracy is high while validation accuracy is low, that's a sign. To prevent overfitting, you might consider techniques like regularization, cross-validation, or simplifying the model.
