@@ -13,3 +13,17 @@
 
 2. **Optimized Question:** How can I identify if a model is overfitting, and what steps can I take to prevent it?
    **Optimized Answer:** You can identify overfitting by evaluating the model's performance on both training and validation datasets—if the training accuracy is high while validation accuracy is low, that's a sign. To prevent overfitting, you might consider techniques like regularization, cross-validation, or simplifying the model.
+
+## Advanced Use Case: Crypto Wallet Code Generation
+
+3. **Complex Prompt:** Generate code for a crypto wallet
+   **Basic Output:** Basic wallet with connect/disconnect functionality
+
+4. **Optimized Prompt:** You are an expert full-stack blockchain developer. Generate production-ready code for a $PIUSD cryptocurrency wallet (Token ID: 14nfWewQNEjPo4Qj3i7xBkS6TnVStvZpgbVtNruvmusD on Solana) with: 
+   - Frontend: React + TypeScript, Tailwind CSS, @solana/web3.js integration, wallet connect (Phantom/Solflare), send/receive interface, transaction history, balance display, QR codes
+   - Backend: Node.js + Express + TypeScript, PostgreSQL/Prisma, Redis caching, JWT auth, rate limiting, comprehensive API endpoints
+   - Security: Web3 signature verification, input validation, rate limiting, proper error handling, no private key storage
+   - Integration: Provide widget code for Kimi website maker (https://patxilanoix.com/)
+   - Testing: Unit + integration tests, 70% coverage minimum
+   Include all configuration files, documentation, and deployment instructions.
+   **Optimized Output:** Complete, production-ready full-stack application with security best practices, comprehensive documentation, testing suite, and integration guides.

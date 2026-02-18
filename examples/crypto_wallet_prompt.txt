@@ -1,0 +1,485 @@
+# Sophisticated Prompt for $PIUSD Crypto Wallet Code Generation
+
+## Master Prompt for Full-Stack Crypto Wallet Development
+
+You are an expert full-stack blockchain developer with deep expertise in cryptocurrency wallet development, smart contract integration, and secure payment systems. Your task is to generate production-ready, fully functional code for a cryptocurrency wallet that will be integrated into the website https://patxilanoix.com/ using Kimi website maker.
+
+### Project Specifications
+
+**Token Information:**
+- Token Name: $PIUSD_PATXI
+- Token Symbol: $PIUSD
+- Contract Address/ID: 14nfWewQNEjPo4Qj3i7xBkS6TnVStvZpgbVtNruvmusD
+- Blockchain: Solana (based on contract ID format)
+
+### Requirements
+
+Generate complete, production-ready code for both frontend and backend components with the following specifications:
+
+---
+
+## FRONTEND REQUIREMENTS
+
+### 1. User Interface Components
+
+Create a modern, responsive, and secure wallet interface with the following features:
+
+**A. Wallet Dashboard**
+- Balance display for $PIUSD tokens with real-time updates
+- Wallet address display with copy-to-clipboard functionality
+- Recent transaction history (last 20 transactions)
+- Interactive charts showing balance trends
+- QR code generator for receiving payments
+- Responsive design that works on mobile, tablet, and desktop
+
+**B. Transaction Features**
+- Send $PIUSD tokens interface with:
+  - Recipient address input with validation
+  - Amount input with balance verification
+  - Transaction fee estimation
+  - Confirmation dialog with transaction preview
+  - Success/error notifications
+- Receive tokens interface with:
+  - Display of wallet address
+  - QR code for easy scanning
+  - Share buttons for social media
+  
+**C. Security Features**
+- Secure wallet connection (Phantom, Solflare, or similar)
+- Transaction signing interface
+- Session timeout warnings
+- Multi-factor authentication prompts
+- Password/PIN protection option
+- Biometric authentication support (for mobile)
+
+**D. User Experience**
+- Loading states for all async operations
+- Error handling with user-friendly messages
+- Tooltips and help documentation
+- Multi-language support (English, Spanish, French)
+- Dark/Light theme toggle
+- Accessibility features (WCAG 2.1 AA compliant)
+
+### 2. Technology Stack for Frontend
+
+Use the following modern technologies:
+- **Framework:** React 18+ with TypeScript
+- **State Management:** Redux Toolkit or Zustand
+- **Styling:** Tailwind CSS + shadcn/ui components
+- **Blockchain Integration:** @solana/web3.js, @solana/wallet-adapter-react
+- **Charts:** Recharts or Chart.js
+- **QR Code:** qrcode.react
+- **Icons:** Lucide React or Heroicons
+- **HTTP Client:** Axios or Fetch API with error handling
+- **Form Validation:** React Hook Form + Zod
+
+### 3. Frontend Code Structure
+
+Provide the following files:
+1. **App.tsx** - Main application component with routing
+2. **components/WalletDashboard.tsx** - Main dashboard component
+3. **components/SendTransaction.tsx** - Send tokens component
+4. **components/ReceiveTokens.tsx** - Receive tokens component
+5. **components/TransactionHistory.tsx** - Transaction list component
+6. **components/WalletConnect.tsx** - Wallet connection component
+7. **hooks/useWallet.ts** - Custom hook for wallet operations
+8. **hooks/useTransactions.ts** - Custom hook for transaction management
+9. **services/solanaService.ts** - Solana blockchain interaction service
+10. **utils/validation.ts** - Input validation utilities
+11. **utils/formatters.ts** - Display formatters for amounts and addresses
+12. **types/wallet.types.ts** - TypeScript type definitions
+13. **config/solana.config.ts** - Solana network and token configuration
+14. **styles/globals.css** - Global styles and Tailwind configuration
+
+---
+
+## BACKEND REQUIREMENTS
+
+### 1. API Endpoints
+
+Create a robust backend API with the following endpoints:
+
+**A. Wallet Management**
+- `POST /api/wallet/create` - Create a new wallet
+- `GET /api/wallet/:address/balance` - Get wallet balance
+- `GET /api/wallet/:address/info` - Get wallet information
+- `POST /api/wallet/import` - Import existing wallet
+
+**B. Transaction Management**
+- `POST /api/transactions/send` - Initiate a transaction
+- `GET /api/transactions/:signature` - Get transaction details
+- `GET /api/transactions/history/:address` - Get transaction history
+- `POST /api/transactions/verify` - Verify transaction status
+- `GET /api/transactions/pending/:address` - Get pending transactions
+
+**C. Token Information**
+- `GET /api/token/info` - Get $PIUSD token information
+- `GET /api/token/price` - Get current token price
+- `GET /api/token/supply` - Get token supply information
+- `GET /api/token/holders/:address` - Get token holder information
+
+**D. Security & Authentication**
+- `POST /api/auth/verify-signature` - Verify wallet signature
+- `POST /api/auth/session` - Create authenticated session
+- `DELETE /api/auth/session` - Logout/end session
+- `POST /api/auth/2fa/enable` - Enable two-factor authentication
+- `POST /api/auth/2fa/verify` - Verify 2FA code
+
+**E. Notifications**
+- `POST /api/notifications/register` - Register for push notifications
+- `GET /api/notifications/:address` - Get notifications for address
+- `PUT /api/notifications/read/:id` - Mark notification as read
+
+### 2. Technology Stack for Backend
+
+Use the following technologies:
+- **Runtime:** Node.js 18+ with TypeScript
+- **Framework:** Express.js or Fastify
+- **Blockchain:** @solana/web3.js, @solana/spl-token
+- **Database:** PostgreSQL with Prisma ORM or MongoDB
+- **Caching:** Redis for session and cache management
+- **Authentication:** JWT tokens, Web3 signature verification
+- **Rate Limiting:** express-rate-limit
+- **Security:** Helmet, CORS, express-validator
+- **Monitoring:** Winston for logging, Prometheus for metrics
+- **Testing:** Jest, Supertest
+
+### 3. Backend Code Structure
+
+Provide the following files:
+1. **server.ts** - Main server entry point
+2. **routes/wallet.routes.ts** - Wallet-related routes
+3. **routes/transaction.routes.ts** - Transaction routes
+4. **routes/token.routes.ts** - Token information routes
+5. **routes/auth.routes.ts** - Authentication routes
+6. **controllers/wallet.controller.ts** - Wallet business logic
+7. **controllers/transaction.controller.ts** - Transaction business logic
+8. **controllers/token.controller.ts** - Token information logic
+9. **services/solana.service.ts** - Solana blockchain service
+10. **services/token.service.ts** - Token-specific operations
+11. **services/cache.service.ts** - Redis caching service
+12. **middleware/auth.middleware.ts** - Authentication middleware
+13. **middleware/validation.middleware.ts** - Request validation
+14. **middleware/rateLimiter.middleware.ts** - Rate limiting
+15. **middleware/errorHandler.middleware.ts** - Error handling
+16. **models/transaction.model.ts** - Transaction data model
+17. **models/wallet.model.ts** - Wallet data model
+18. **utils/blockchain.utils.ts** - Blockchain helper functions
+19. **utils/validation.utils.ts** - Validation utilities
+20. **config/database.config.ts** - Database configuration
+21. **config/solana.config.ts** - Solana configuration
+22. **types/index.ts** - TypeScript type definitions
+
+---
+
+## SECURITY REQUIREMENTS
+
+Implement the following security measures:
+
+### 1. Cryptographic Security
+- Never store private keys on the server
+- Use secure key derivation (BIP39/BIP44 for wallet generation)
+- Implement proper signature verification
+- Use HTTPS/TLS for all communications
+- Encrypt sensitive data at rest
+
+### 2. Input Validation
+- Validate all wallet addresses (Solana format)
+- Validate transaction amounts (positive numbers, sufficient balance)
+- Sanitize all user inputs to prevent injection attacks
+- Implement proper error handling without leaking sensitive information
+
+### 3. Rate Limiting & DDoS Protection
+- Implement rate limiting on all API endpoints
+- Use CAPTCHA for sensitive operations
+- Implement IP-based throttling
+- Add request size limits
+
+### 4. Authentication & Authorization
+- Implement Web3 signature-based authentication
+- Use short-lived JWT tokens with refresh mechanism
+- Implement 2FA for high-value transactions
+- Add session timeout mechanisms
+- Implement CSRF protection
+
+### 5. Monitoring & Logging
+- Log all transactions with timestamps
+- Monitor for suspicious activities
+- Implement alerting for unusual patterns
+- Store logs securely with proper retention
+
+---
+
+## INTEGRATION WITH KIMI WEBSITE MAKER
+
+### 1. Deployment Configuration
+
+Provide instructions and code for integrating with Kimi website maker:
+
+**A. Widget Embedding**
+```html
+<!-- Standalone wallet widget -->
+<div id="piusd-wallet-widget"></div>
+<script src="https://patxilanoix.com/wallet/widget.js"></script>
+<script>
+  PIUSDWallet.init({
+    containerId: 'piusd-wallet-widget',
+    network: 'mainnet-beta',
+    tokenAddress: '14nfWewQNEjPo4Qj3i7xBkS6TnVStvZpgbVtNruvmusD',
+    theme: 'auto', // 'light', 'dark', or 'auto'
+    locale: 'en' // 'en', 'es', 'fr'
+  });
+</script>
+```
+
+**B. React Component Integration**
+```jsx
+import { PIUSDWallet } from '@piusd/wallet-react';
+
+function App() {
+  return (
+    <PIUSDWallet
+      network="mainnet-beta"
+      tokenAddress="14nfWewQNEjPo4Qj3i7xBkS6TnVStvZpgbVtNruvmusD"
+      theme="auto"
+      locale="en"
+    />
+  );
+}
+```
+
+**C. Configuration for Kimi**
+Provide a JSON configuration file that Kimi can use:
+```json
+{
+  "widget": {
+    "name": "PIUSD Wallet",
+    "version": "1.0.0",
+    "type": "crypto-wallet",
+    "dependencies": {
+      "react": "^18.0.0",
+      "@solana/web3.js": "^1.75.0"
+    },
+    "config": {
+      "tokenAddress": "14nfWewQNEjPo4Qj3i7xBkS6TnVStvZpgbVtNruvmusD",
+      "network": "mainnet-beta"
+    }
+  }
+}
+```
+
+### 2. Build & Deployment
+
+Provide complete build configuration:
+- **package.json** with all dependencies
+- **tsconfig.json** for TypeScript configuration
+- **vite.config.ts** or **webpack.config.js** for bundling
+- **Dockerfile** for containerization
+- **docker-compose.yml** for local development
+- **.env.example** with required environment variables
+- **deployment scripts** for production
+
+---
+
+## TESTING REQUIREMENTS
+
+### 1. Unit Tests
+- Test all utility functions
+- Test validation logic
+- Test formatters and parsers
+- Test service methods
+
+### 2. Integration Tests
+- Test API endpoints
+- Test blockchain interactions
+- Test database operations
+- Test authentication flow
+
+### 3. E2E Tests
+- Test complete transaction flow
+- Test wallet connection
+- Test error scenarios
+- Test UI interactions
+
+### 4. Security Tests
+- Test input validation
+- Test rate limiting
+- Test authentication bypass attempts
+- Test XSS and injection vulnerabilities
+
+---
+
+## DOCUMENTATION REQUIREMENTS
+
+Provide comprehensive documentation:
+
+### 1. README.md
+- Project overview
+- Installation instructions
+- Configuration guide
+- Usage examples
+- API documentation
+- Troubleshooting guide
+
+### 2. API Documentation
+- OpenAPI/Swagger specification
+- Endpoint descriptions
+- Request/response examples
+- Error codes and handling
+
+### 3. Developer Guide
+- Architecture overview
+- Code structure explanation
+- Development setup
+- Contribution guidelines
+
+### 4. User Guide
+- How to use the wallet
+- Security best practices
+- FAQ section
+- Support information
+
+---
+
+## PERFORMANCE REQUIREMENTS
+
+### 1. Optimization
+- Implement lazy loading for components
+- Use code splitting for routes
+- Optimize images and assets
+- Implement service workers for offline capability
+- Use memoization for expensive calculations
+
+### 2. Caching Strategy
+- Cache token information (5-minute TTL)
+- Cache transaction history (1-minute TTL)
+- Implement optimistic UI updates
+- Use Redis for backend caching
+
+### 3. Load Times
+- Initial load: < 3 seconds
+- Transaction confirmation: < 2 seconds
+- API response time: < 500ms (95th percentile)
+
+---
+
+## ADDITIONAL FEATURES
+
+### 1. Advanced Features (Nice to Have)
+- Token swap functionality
+- NFT display support
+- Staking interface
+- Transaction export (CSV/PDF)
+- Address book for frequent recipients
+- Multi-wallet support
+- Hardware wallet integration (Ledger, Trezor)
+
+### 2. Analytics & Reporting
+- Transaction analytics dashboard
+- Portfolio performance tracking
+- Tax reporting features
+- Export transaction history
+
+### 3. Social Features
+- Share payment requests
+- Social profile integration
+- Referral system
+- Community features
+
+---
+
+## DELIVERABLES
+
+Please provide:
+
+1. **Complete source code** for both frontend and backend
+2. **Configuration files** (package.json, tsconfig.json, etc.)
+3. **Environment setup files** (.env.example, docker-compose.yml)
+4. **Documentation** (README.md, API docs, user guide)
+5. **Test files** with reasonable coverage
+6. **Deployment scripts** and instructions
+7. **Integration guide** for Kimi website maker
+8. **Security checklist** with implemented measures
+
+---
+
+## CODE QUALITY STANDARDS
+
+Ensure all code follows these standards:
+
+1. **TypeScript**: Strict mode enabled, no 'any' types
+2. **ESLint**: Configure and pass all linting rules
+3. **Prettier**: Consistent code formatting
+4. **Comments**: Document complex logic and business rules
+5. **Error Handling**: Comprehensive try-catch blocks with proper error messages
+6. **Testing**: Minimum 70% code coverage
+7. **Git**: Semantic commit messages
+8. **Code Review**: Self-review checklist included
+
+---
+
+## PRIORITY ORDER
+
+Implement features in this order:
+
+1. **Phase 1 (MVP)**: Basic wallet connection, balance display, send/receive functionality
+2. **Phase 2**: Transaction history, notifications, security enhancements
+3. **Phase 3**: Advanced features, analytics, optimization
+4. **Phase 4**: Additional features and integrations
+
+---
+
+## SPECIFIC INSTRUCTIONS FOR $PIUSD TOKEN
+
+1. Use the Solana blockchain (mainnet-beta)
+2. Token Program ID: 14nfWewQNEjPo4Qj3i7xBkS6TnVStvZpgbVtNruvmusD
+3. Implement SPL Token standard interactions
+4. Fetch token metadata from the blockchain
+5. Display token decimals correctly (typically 9 for Solana tokens)
+6. Implement proper transaction fees calculation (Solana network fees + priority fees)
+7. Support for associated token accounts
+
+---
+
+## ERROR HANDLING SCENARIOS
+
+Implement proper handling for:
+
+1. Wallet not connected
+2. Insufficient balance
+3. Network errors/timeouts
+4. Invalid addresses
+5. Transaction rejection
+6. Rate limit exceeded
+7. Server errors
+8. Blockchain node unavailable
+9. Invalid token account
+10. Signature verification failure
+
+---
+
+## COMPLIANCE & LEGAL
+
+Consider these compliance aspects:
+
+1. Privacy policy integration
+2. Terms of service display
+3. KYC/AML notices (if applicable)
+4. Regional restrictions handling
+5. Data protection (GDPR compliance)
+6. Transaction limits and reporting
+
+---
+
+## FINAL NOTES
+
+- Prioritize security above all else
+- Write clean, maintainable, production-ready code
+- Include comprehensive error handling
+- Provide clear documentation
+- Follow blockchain best practices
+- Test thoroughly before deployment
+- Consider scalability from the start
+- Make the code modular and extensible
+
+Generate the complete, production-ready code following all these specifications.
