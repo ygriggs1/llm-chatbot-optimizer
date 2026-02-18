@@ -8,6 +8,8 @@ This project demonstrates prompt engineering for OpenAI APIs, creating 100+ opti
 - Prompt optimization with A/B testing
 - RAG integration via FAISS
 - Mobile AI simulation
+- Advanced prompt engineering for complex code generation
+- Crypto wallet development prompt templates
 
 ## Installation
 ```bash
@@ -16,6 +18,14 @@ pip install openai faiss-cpu
 
 ## Usage
 Run `python src/main.py` with your OpenAI API key (use .env for security).
+
+### Crypto Wallet Prompt Example
+For advanced code generation, see our sophisticated crypto wallet prompt:
+- Full guide: `docs/crypto_wallet_prompt_guide.md`
+- Quick reference: `docs/crypto_wallet_quick_reference.md`
+- Complete prompt: `examples/crypto_wallet_prompt.txt`
+
+This demonstrates how to create highly detailed prompts for generating production-ready full-stack applications.
 
 ## Metrics
 - Relevance Improvement: 45% (measured via cosine similarity on 200 test queries)
