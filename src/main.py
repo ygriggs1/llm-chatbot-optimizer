@@ -2,17 +2,22 @@ import openai
 import faiss
 import numpy as np
 
+# text-embedding-ada-002 produces 1536-dimensional embeddings
+EMBEDDING_DIM = 1536
+EMBEDDING_MODEL = "text-embedding-ada-002"
+
+
 class PromptOptimizer:
     def __init__(self, api_key):
-        openai.api_key = api_key
-        self.vector_store = faiss.IndexFlatL2(768)  # Assuming embedding size of 768
+        self.client = openai.OpenAI(api_key=api_key)
+        self.vector_store = faiss.IndexFlatL2(EMBEDDING_DIM)
 
     def embed_text(self, text):
-        response = openai.Embedding.create(
+        response = self.client.embeddings.create(
             input=[text],
-            model="text-embedding-ada-002"  # Change model if needed
+            model=EMBEDDING_MODEL,
         )
-        return np.array(response['data'][0]['embedding']).astype('float32')
+        return np.array(response.data[0].embedding).astype("float32")
 
     def add_to_vector_store(self, text):
         embedding = self.embed_text(text)
@@ -22,6 +27,7 @@ class PromptOptimizer:
         query_embedding = self.embed_text(query)
         distances, indices = self.vector_store.search(query_embedding.reshape(1, -1), k)
         return indices, distances
+
 
 # Example usage:
 # optimizer = PromptOptimizer(api_key='your_openai_api_key')
